@@ -72,7 +72,7 @@ function TodoList(selectors) {
     let countEle;
     let ele;
     let clearBtnEle;
-    const todos = [];
+    let todos = [];
     // init
     countEle = document.querySelector(selectors.countSelector);
     ele = document.querySelector(selectors.listSelector);
@@ -102,8 +102,9 @@ function TodoList(selectors) {
         }
     }
     // function
-    function onItemRemove() {
+    function onItemRemove(id) {
         updateCountByDelta(-1);
+        todos = todos.filter(todo => todo.id != id);
     }
     function updateCountByDelta(delta) {
         count += delta;
@@ -138,7 +139,7 @@ function TodoItem(value, onRemove) {
     function remove() {
         runWithEffectAndDelete(wrapper, () => {
             wrapper.remove();
-            onRemove();
+            onRemove(id);
         });
     }
     function getContent() {
