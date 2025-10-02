@@ -12,10 +12,9 @@
 
 <body>
 
-    <div id="app" class=" bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  h-screen w-full">
-
-        <div class=" prose mx-auto bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow">
-            <div class="w-80 flex flex-col p-5 gap-5">
+    <div id="app" class=" bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  max-h-screen w-full flex flex-col">
+        <div class=" prose mx-auto bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow ">
+            <div class="w-80 flex flex-col p-5 gap-5 h-auto max-h-screen">
                 <div class="rounded">
                     <h1>TODO APP</h1>
                     <form action="" class="flex gap-2">
@@ -31,12 +30,13 @@
                 </div>
 
 
-                <div class="flex flex-col gap-2 todo-list">
+                <div class="flex flex-col gap-2 todo-list flex-1 overflow-y-auto">
 
                 </div>
 
 
-                <div class="flex justify-between items-center">
+
+                <div class="flex justify-between items-center ">
                     <div class="font-semibold">You Have <span class="todo-count">4</span> pending Todo</div>
                     <button type="button"
                         class="shadow px-2 p-2 font-semibold bg-purple-400 text-white rounded text-sm hover:bg-purple-500 transition todo-clear-btn">

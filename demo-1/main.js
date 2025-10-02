@@ -98,7 +98,6 @@ function TodoList(selectors) {
     }
     function clearTodo() {
         for (const todo of todos) {
-            todo.remove();
             runWithEffectAndDelete(todo.ele, todo.remove);
         }
     }
@@ -153,11 +152,14 @@ function TodoItem(value, onRemove) {
     };
 }
 function runWithEffectAndAdd(ele) {
-    ele.classList.add('transition-opacity', 'opacity-0', 'duration-1000', 'ease-out');
+    ele.classList.add('transition-opacity', 'opacity-0', 'duration-300', 'ease-out');
     setTimeout(() => {
         ele.classList.add('opacity-1');
         ele.classList.remove('opacity-0');
     }, 100);
+    setTimeout(() => {
+        ele.classList.remove('transition-opacity', 'opacity-0', 'duration-300', 'ease-out');
+    }, 400);
 }
 let elesToDelete = [];
 function runWithEffectAndDelete(ele, deleteFun) {
@@ -165,7 +167,7 @@ function runWithEffectAndDelete(ele, deleteFun) {
         return;
     }
     elesToDelete.push(ele);
-    ele.classList.add('transition-opacity', 'opacity-1', 'duration-1000', 'ease-out');
+    ele.classList.add('transition-opacity', 'opacity-1', 'duration-300', 'ease-out');
     setTimeout(() => {
         ele.classList.remove('opacity-1');
         ele.classList.add('opacity-0');
@@ -173,5 +175,5 @@ function runWithEffectAndDelete(ele, deleteFun) {
     setTimeout(() => {
         elesToDelete = elesToDelete.filter(e => e != ele);
         deleteFun();
-    }, 900);
+    }, 400);
 }
