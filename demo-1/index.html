@@ -8,29 +8,52 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
+    <style>
+        .dragging form div div {
+            background-color: aqua !important;
+        }
+    </style>
+
 </head>
 
-<body>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 ">
 
-    <div id="app" class=" bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  h-screen  w-full flex flex-col">
-        <div class=" prose mx-auto bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow">
-            <div class="w-80 flex flex-col p-5 gap-5 h-auto max-h-[calc(100vh-4rem)] ">
-                <div class="rounded">
+    <div id="app" class="h-screen  w-full flex flex-col">
+        <div
+            class="prose mx-auto bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow max-w-xl w-full">
+            <div class="flex flex-col p-5 gap-5 h-auto max-h-[calc(100vh-4rem)] ">
+                <div class="rounded flex flex-col gap-2">
                     <h1>TODO APP</h1>
-                    <form action="" class="flex gap-2">
-                        <input type="search" class="rounded w-full todo-add-input shadow"
-                            placeholder="Add your new Todo">
-                        <button
-                            class=" shadow p-2  w-10 bg-purple-400 flex items-center justify-center text-white font-medium hover:bg-purple-500 transition-colors rounded todo-add-btn"
-                            type="button">
-                            <i class="fa-solid fa-plus"></i>
+                    <form action="">
+                        <div class="flex gap-2">
+                            <input type="search" class="rounded w-full todo-add-input shadow"
+                                placeholder="Add your new Todo">
+                            <button
+                                class=" shadow p-2  w-10 bg-purple-400 flex items-center justify-center text-white font-medium hover:bg-purple-500 transition-colors rounded todo-add-btn"
+                                type="button">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <p class="p-0 m-0 text-red-500 todo-add-msg">hello</p>
+                    </form>
+                    <form action="">
+                        <div class="flex gap-2">
+                            <input type="search" class="rounded w-full todo-search-input shadow"
+                                placeholder="Search todo">
+                            <button
+                                class=" shadow p-2  w-10 bg-purple-400 flex items-center justify-center text-white font-medium hover:bg-purple-500 transition-colors rounded todo-search-btn"
+                                type="button">
+                                <i class="fas fa-search"></i>
 
-                        </button>
+
+                            </button>
+                        </div>
+                        <p class="p-0 m-0 text-red-500 todo-search-msg">hello</p>
                     </form>
                 </div>
 
 
-                <div class="flex flex-col gap-2 todo-list flex-1 overflow-y-auto">
+                <div class=" todo-list flex-1 overflow-y-auto drag-wrapper">
 
                 </div>
 
@@ -52,10 +75,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script src="./main.js"></script>
-    <script>
-
-    </script>
+    <script src="./assets/js/main.js" type="module"></script>
 </body>
 
 </html>
